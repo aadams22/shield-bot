@@ -6,8 +6,8 @@ var request   = require('request');
 
 var crypto = require('crypto');
 var key    = new Buffer('Q93HDHKID6EN14OF595032JN63446295');
-var e      = require('./encryption.js').encrypt;
-var d      = require('./encryption.js').decrypt;
+var e      = require('./config/encryption.js').encrypt;
+var d      = require('./config/encryption.js').decrypt;
 
 
 
@@ -19,7 +19,7 @@ app.set('port', (process.env.PORT || 8080));
 
 
 app.get('/', function(req, res){
-  res.send('Huzzah! It works!');
+  res.send('Huzzah! I still work!');
 });
 
 var dm = d(key, e(key, 'this is now decrypted'));
