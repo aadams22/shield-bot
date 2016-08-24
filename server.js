@@ -28,8 +28,8 @@ app.post('/post', function(req, res){
 
   request(function (error, response, body) {
     if (!error && response.statusCode == 200) {
-  //     var data = JSON.parse(body);
-  //     var first_url = data.response.hits[0].result.url;
+      // var data = JSON.parse(body);
+      // var first_url = data.response.hits[0].result.url;
 
       var body = {
         response_type: "in_channel",
@@ -39,6 +39,9 @@ app.post('/post', function(req, res){
 
       res.send(body);
     }
+
+    if (error) { res.send(error) };
+
   });
 
 
