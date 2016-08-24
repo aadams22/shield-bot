@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('port', (process.env.PORT || 8080));
 
+
 app.get('/', function(req, res){
   res.send('It works!');
 });
@@ -16,29 +17,31 @@ app.get('/', function(req, res){
 // process.env.SHIELD_SLACKBOT_INTEGRATION_KEY
 
 
-// app.post('/post', function(req, res){
-//   var parsed_url = url.format({
-//     pathname: 'https://api.genius.com/search',
-//     query: {
-//       access_token: process.env.GENIUS_ACCESS,
-//       q: req.body.text
-//     }
-//   });
+app.post('/post', function(req, res){
+  // var parsed_url = url.format({
+  //   pathname: 'https://api.genius.com/search',
+  //   query: {
+  //     access_token: process.env.GENIUS_ACCESS,
+  //     q: req.body.text
+  //   }
+  // });
 
-//   request(parsed_url, function (error, response, body) {
-//     if (!error && response.statusCode == 200) {
-//       var data = JSON.parse(body);
-//       var first_url = data.response.hits[0].result.url;
+  // request(parsed_url, function (error, response, body) {
+  //   if (!error && response.statusCode == 200) {
+  //     var data = JSON.parse(body);
+  //     var first_url = data.response.hits[0].result.url;
 
-//       var body = {
-//         response_type: "in_channel",
-//         text: first_url
-//       };
+  //     var body = {
+  //       response_type: "in_channel",
+  //       text: "it's working"
 
-//       res.send(body);
-//     }
-//   });
-// });
+  //     };
+
+  //     res.send(body);
+  //   }
+  // });
+    res.send("I will eventually shield you.");
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
