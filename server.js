@@ -11,7 +11,7 @@ app.set('port', (process.env.PORT || 8080));
 
 
 app.get('/', function(req, res){
-  res.send('It works!');
+  res.send('Huzzah! It works!');
 });
 
 // process.env.SHIELD_SLACKBOT_INTEGRATION_KEY
@@ -26,21 +26,22 @@ app.post('/post', function(req, res){
   //   }
   // });
 
-  // request(parsed_url, function (error, response, body) {
-  //   if (!error && response.statusCode == 200) {
+  request(function (error, response, body) {
+    if (!error && response.statusCode == 200) {
   //     var data = JSON.parse(body);
   //     var first_url = data.response.hits[0].result.url;
 
-  //     var body = {
-  //       response_type: "in_channel",
-  //       text: "it's working"
+      var body = {
+        response_type: "in_channel",
+        text: "I will eventually shield you."
 
-  //     };
+      };
 
-  //     res.send(body);
-  //   }
-  // });
-    res.send("I will eventually shield you.");
+      res.send(body);
+    }
+  });
+
+
 });
 
 app.listen(app.get('port'), function() {
