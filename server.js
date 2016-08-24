@@ -18,31 +18,14 @@ app.get('/', function(req, res){
 
 
 app.post('/post', function(req, res){
-  // var parsed_url = url.format({
-  //   pathname: 'https://api.genius.com/search',
-  //   query: {
-  //     access_token: process.env.GENIUS_ACCESS,
-  //     q: req.body.text
-  //   }
-  // });
 
-  request(function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      // var data = JSON.parse(body);
-      // var first_url = data.response.hits[0].result.url;
+  var body = {
+    response_type: "in_channel",
+    text: "I will eventually shield you."
+  };
 
-      var body = {
-        response_type: "in_channel",
-        text: "I will eventually shield you."
-
-      };
-
-      res.send(body);
-    }
-
-    if (error) { res.send(error) };
-
-  });
+  res.send(body);
+  if (error) { console.log(error) };
 
 
 });
