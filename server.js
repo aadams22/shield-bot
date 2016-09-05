@@ -22,6 +22,7 @@ app.get('/', function(req, res){
   res.send('Huzzah! I still work!');
 });
 
+//Units For Testing:
 var dm = d(key, e(key, 'this is now decrypted'));
 var em = e(key, 'this is now decrypted');
 
